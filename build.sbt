@@ -27,19 +27,19 @@ val btVersion: String = Try(ConfigFactory.load.getString("version")) match {
 val dependencies: Seq[ModuleID] = Seq(
   "ch.qos.logback"             % "logback-core"     % "1.2.3",
   "ch.qos.logback"             % "logback-classic"  % "1.2.3",
-  "com.typesafe"               % "config"           % "1.3.4",
+  "com.typesafe"               % "config"           % "1.4.0",
   "commons-io"                 % "commons-io"       % "2.6",
   "org.apache.commons"         % "commons-lang3"    % "3.9",
-  "com.fasterxml.jackson.core" % "jackson-databind" % "2.9.9.3",
-  "com.fasterxml.jackson.core" % "jackson-core"     % "2.9.9"
+  "com.fasterxml.jackson.core" % "jackson-databind" % "2.10.2",
+  "com.fasterxml.jackson.core" % "jackson-core"     % "2.10.2"
 )
 
 lazy val library = Project(libraryName, file("."))
   .settings(
     version                              :=  btVersion,
-    scalaVersion                         :=  "2.13.0",
+    scalaVersion                         :=  "2.13.1",
     organization                         :=  "com.cjww-dev.libs",
-    resolvers                            +=  "cjww-dev" at "http://dl.bintray.com/cjww-development/releases",
+    resolvers                            +=  "cjww-dev" at "https://dl.bintray.com/cjww-development/releases",
     libraryDependencies                  ++= dependencies,
     bintrayOrganization                  :=  Some("cjww-development"),
     bintrayRepository                    :=  "releases",
