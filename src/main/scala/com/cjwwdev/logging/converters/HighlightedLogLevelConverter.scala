@@ -16,7 +16,7 @@
 
 package com.cjwwdev.logging.converters
 
-import com.cjwwdev.logging.hightlighting.Highlighter._
+import com.cjwwdev.logging.highlighting.Highlighter._
 
 import ch.qos.logback.classic.Level
 import ch.qos.logback.classic.pattern.ClassicConverter
