@@ -21,14 +21,13 @@ import java.nio.charset.StandardCharsets
 
 import ch.qos.logback.classic.spi.{ILoggingEvent, ThrowableProxyUtil}
 import ch.qos.logback.core.encoder.EncoderBase
-import com.fasterxml.jackson.core.JsonGenerator.Feature
-import org.apache.commons.io.IOUtils.LINE_SEPARATOR
+import com.fasterxml.jackson.core.json.JsonWriteFeature.ESCAPE_NON_ASCII
 import org.apache.commons.lang3.time.FastDateFormat
 import com.fasterxml.jackson.databind.ObjectMapper
 
 class JsonLoggingEncoder extends EncoderBase[ILoggingEvent] with EncoderConfig with EncodingUtils {
 
-  private val mapper = new ObjectMapper().configure(Feature.ESCAPE_NON_ASCII, true)
+  private val mapper = new ObjectMapper().configure(ESCAPE_NON_ASCII.mappedFeature(), true)
 
   override def encode(event: ILoggingEvent): Array[Byte] = {
     val eventNode = mapper.createObjectNode()
@@ -68,9 +67,9 @@ class JsonLoggingEncoder extends EncoderBase[ILoggingEvent] with EncoderConfig w
 
     loggingContent.foreach { case (key, content) => eventNode.put(key, content) }
 
-    s"${mapper.writeValueAsString(eventNode)}$LINE_SEPARATOR".getBytes(StandardCharsets.UTF_8)
+    s"${mapper.writeValueAsString(eventNode)}${System.lineSeparator()}".getBytes(StandardCharsets.UTF_8)
   }
 
-  override def headerBytes(): Array[Byte] = LINE_SEPARATOR.getBytes(StandardCharsets.UTF_8)
-  override def footerBytes(): Array[Byte] = LINE_SEPARATOR.getBytes(StandardCharsets.UTF_8)
+  override def headerBytes(): Array[Byte] =  System.lineSeparator().getBytes(StandardCharsets.UTF_8)
+  override def footerBytes(): Array[Byte] =  System.lineSeparator().getBytes(StandardCharsets.UTF_8)
 }
