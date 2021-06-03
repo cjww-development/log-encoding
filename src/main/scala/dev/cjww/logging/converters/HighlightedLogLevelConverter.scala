@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.cjwwdev.logging.converters
+package dev.cjww.logging.converters
 
-import com.cjwwdev.logging.highlighting.Highlighter._
+import dev.cjww.logging.highlighting.Highlighter._
 
 import ch.qos.logback.classic.Level
 import ch.qos.logback.classic.pattern.ClassicConverter

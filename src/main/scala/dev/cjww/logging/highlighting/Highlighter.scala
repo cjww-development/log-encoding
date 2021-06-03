@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cjwwdev.logging.highlighting
+package dev.cjww.logging.highlighting
 
 import scala.Console._
 import java.util.Locale.ENGLISH

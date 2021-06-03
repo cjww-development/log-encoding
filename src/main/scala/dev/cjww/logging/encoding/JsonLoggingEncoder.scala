@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cjwwdev.logging.encoding
+package dev.cjww.logging.encoding
 
 import java.net.InetAddress
 import java.nio.charset.StandardCharsets

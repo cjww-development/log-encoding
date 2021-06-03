@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cjwwdev.logging.encoding
+package dev.cjww.logging.encoding
 
 import com.typesafe.config.ConfigFactory
 

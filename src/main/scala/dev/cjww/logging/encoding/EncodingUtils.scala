@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cjwwdev.logging.encoding
+package dev.cjww.logging.encoding
 
 sealed trait LogType
 case class RequestLog(method: String, status: Int, duration: Int) extends LogType
